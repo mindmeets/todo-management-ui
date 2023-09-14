@@ -46,7 +46,7 @@ export class BasicAuthenticationService {
 
   getAuthenticatedUser() {
     if(this.isUserLoggedIn()) {
-      return sessionStorage.getItem(AUTHENTICATED_USER);
+      return sessionStorage.getItem(AUTHENTICATED_USER) as string;
     }
     return ''
   }

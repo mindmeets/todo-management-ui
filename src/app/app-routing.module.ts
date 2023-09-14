@@ -7,6 +7,9 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { TodoComponent } from './todo/todo.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
   { path: 'todos/:id', component: TodoComponent, canActivate: [RouteGuardService] },
+  { path: 'change-password', component: ChangePasswordComponent, canActivate: [RouteGuardService] },
+  { path: 'users', component: ListUsersComponent, canActivate: [RouteGuardService] },
+  { path: 'users/:username', component: UserComponent, canActivate: [RouteGuardService] },
   { path: '**', component: ErrorComponent }
 ];
 
