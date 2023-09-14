@@ -29,6 +29,7 @@ export class UserComponent implements OnInit {
     if (this.username != '') {
       this.userDataService.retriveUser(this.username).subscribe(response => {
         this.user = response
+        this.isNew = false
       })
     }
   }
