@@ -48,7 +48,7 @@ export class ChangePasswordComponent {
         error: error => {
           console.log('Auth error===> ', error)
           this.invalidCredentials = true
-          this.router.navigate(['error'])
+          this.changePassSuccess = false
         }
      });
   }
