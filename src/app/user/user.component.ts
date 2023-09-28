@@ -12,7 +12,7 @@ import { User } from '../list-users/list-users.component';
 export class UserComponent implements OnInit {
 
   username: string = ''
-  user: User = new User('', true)
+  user: User = new User('', true, false)
   isNew: boolean = true
 
   constructor(

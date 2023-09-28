@@ -6,7 +6,7 @@
         <ul class="navbar-nav">
             <li><a *ngIf="this.authService.isUserLoggedIn()" routerLink="/welcome/{{this.authService.getAuthenticatedUser()}}" class="nav-link">Home</a></li>
             <li><a *ngIf="this.authService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>
-            <li><a *ngIf="this.authService.isUserLoggedIn()" routerLink="/users" class="nav-link">Users</a></li>
+            <li><a *ngIf="this.authService.isUserLoggedIn() && this.authService.isAdmin()" routerLink="/users" class="nav-link">Users</a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">

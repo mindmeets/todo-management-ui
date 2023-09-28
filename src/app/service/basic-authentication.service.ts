@@ -1,12 +1,14 @@
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators'
-import { API_URL, AUTHENTICATED_USER, TOKEN } from '../app.constants';
+import { API_URL, AUTHENTICATED_USER, TOKEN, USER_ROLES } from '../app.constants';
 
 export class JWTBean {
-  token: string = ''
-
-  constructor() {
+  constructor(
+    public username: string,
+    public token: string,
+    public roles: string[] 
+  ) {
   }
 }
 
@@ -32,8 +34,9 @@ export class BasicAuthenticationService {
         map(
           data => {
             console.log('Auth service===> ', data)
-            sessionStorage.setItem(AUTHENTICATED_USER, username)
+            sessionStorage.setItem(AUTHENTICATED_USER, data.username)
             sessionStorage.setItem(TOKEN, `Bearer ${data.token}`)
+            sessionStorage.setItem(USER_ROLES, JSON.stringify(data.roles))
           }
         )
       )
@@ -56,6 +59,14 @@ export class BasicAuthenticationService {
       return sessionStorage.getItem(TOKEN);
     }
     return ''
+  }
+
+  isAdmin() {
+    if(this.getAuthenticatedUser()) {
+      return JSON.parse(sessionStorage.getItem(USER_ROLES) as string).includes('ADMIN')
+    }
+    return []
+
   }
 
   logout() {
