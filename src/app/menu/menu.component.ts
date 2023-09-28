@@ -8,9 +8,7 @@ import { BasicAuthenticationService } from '../service/basic-authentication.serv
 })
 export class MenuComponent implements OnInit {
 
-
   constructor(public authService: BasicAuthenticationService) {
-
   }
   ngOnInit(): void {
   }

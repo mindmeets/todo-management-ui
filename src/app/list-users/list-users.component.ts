@@ -6,7 +6,8 @@ import { UserDataService } from '../service/data/user-data.service';
 export class User {
   constructor(
     public username: string,
-    public enabled: boolean
+    public enabled: boolean,
+    public admin: boolean
   ) {}
 }
 
